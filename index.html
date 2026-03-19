@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zapatch Technologies — Powering the Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="cursor-glow"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a class="logo" href="#" onclick="navigate('home')">
+        <span class="logo-z">Z</span><span class="logo-rest">apatch</span>
+        <span class="logo-badge">TECH</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" onclick="navigate('home')" data-page="home">Home</a></li>
+        <li><a href="#" onclick="navigate('about')" data-page="about">About</a></li>
+        <li><a href="#" onclick="navigate('services')" data-page="services">Services</a></li>
+        <li><a href="#" onclick="navigate('solutions')" data-page="solutions">Solutions</a></li>
+        <li><a href="#" onclick="navigate('contact')" data-page="contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle dark/light mode">
+          <span class="toggle-track">
+            <span class="toggle-thumb">
+              <span class="sun-icon">☀</span>
+              <span class="moon-icon">☽</span>
+            </span>
+          </span>
+        </button>
+        <a href="#" class="nav-cta" onclick="navigate('contact')">Get Started</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE CONTAINER -->
+  <main id="app"></main>
+
+  <!-- FOOTER -->
+  <footer id="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-z">Z</span><span class="logo-rest">apatch Technologies</span>
+        <p>Connecting systems. Fixing inefficiencies. Powering the future.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#" onclick="navigate('about')">About Us</a>
+          <a href="#" onclick="navigate('services')">Services</a>
+          <a href="#" onclick="navigate('solutions')">Solutions</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#">Enterprise Cloud</a>
+          <a href="#">Cybersecurity</a>
+          <a href="#">EdTech Systems</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="#" onclick="navigate('contact')">Contact Us</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Twitter/X</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Zapatch Technologies. All rights reserved.</p>
+      <div class="footer-badges">
+        <span>AI-First</span>
+        <span>Cloud-Native</span>
+        <span>SaaS-Driven</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
