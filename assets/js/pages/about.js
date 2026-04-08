@@ -48,16 +48,15 @@ function aboutPage() {
   return /* html */`
 
   <!-- ── ABOUT HERO ── -->
-  <section class="section" style="background:var(--hero-grad);padding-top:8rem;position:relative;overflow:hidden">
-    <div style="position:absolute;inset:0;background:var(--hero-mesh);pointer-events:none"></div>
-    <div class="section-inner" style="position:relative;z-index:1">
-      <div style="max-width:800px">
-        <span class="section-label">Who We Are</span>
+  <section class="page-hero">
+    <div class="section-inner" style="position:relative;z-index:1;text-align:center">
+      <div style="max-width:800px;margin:0 auto">
+        <span class="section-label" style="display:flex;justify-content:center">Who We Are</span>
         <h1 class="section-title">
           Built at the Intersection of<br>
           <span class="text-coral">Innovation</span> &amp; Execution
         </h1>
-        <p style="font-size:1.1rem;line-height:1.8;color:var(--text-2);margin-top:1.25rem;max-width:680px">
+        <p style="font-size:1.1rem;line-height:1.8;color:var(--text-2);margin-top:1.25rem;max-width:680px;margin-left:auto;margin-right:auto">
           Zapatch Technologies is a next-generation, full-service technology company operating as a
           hybrid organization — combining the execution strength of a corporate IT firm with the
           innovation speed of a modern startup.
