@@ -7,9 +7,9 @@ function contactPage() {
 
   const details = [
     { icon:'📍', label:'Headquarters', val:'Victoria Island, Lagos, Nigeria' },
-    { icon:'📧', label:'Email',         val:'hello@zapatch.tech' },
-    { icon:'📞', label:'Phone',         val:'+234 700 ZAPATCH' },
-    { icon:'🌐', label:'Website',       val:'www.zapatch.tech' },
+    { icon:'📧', label:'Email',         val:'info@zapatch.com' },
+    { icon:'📞', label:'Phone',         val:'+234 902 2644 650' },
+    { icon:'🌐', label:'Website',       val:'www.zapatch.com' },
   ];
 
   const offices = ['Abuja, Nigeria', 'Nairobi, Kenya', 'Accra, Ghana', 'London, United Kingdom'];

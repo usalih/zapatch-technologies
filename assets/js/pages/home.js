@@ -48,7 +48,6 @@ function homePage() {
 
       <!-- Left content -->
       <div class="hero-content">
-        <div class="hero-eyebrow">Next-Generation Technology</div>
         <h1 class="hero-title">
           We <span class="accent">Connect</span><br>
           Systems &amp; <span class="accent2">Power</span><br>
