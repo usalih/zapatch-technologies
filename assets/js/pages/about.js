@@ -20,10 +20,10 @@ function aboutPage() {
   ];
 
   const team = [
-    { e:'👨‍💼', name:'Adebayo Okonkwo',  role:'CEO & Co-Founder' },
-    { e:'👩‍💻', name:'Chidinma Eze',     role:'CTO & Co-Founder' },
-    { e:'👨‍🔬', name:'Emeka Nwosu',      role:'Chief AI Officer' },
-    { e:'👩‍💼', name:'Fatima Al-Hassan', role:'Chief Security Officer' },
+    { img:'assets/images/team/101.jpg', name:'Abubakar Salim',  role:'CEO & Co-Founder' },
+    { img:'assets/images/team/105.jpg', name:'Humaira S. Adamu',     role:'Lead Cybersecurity Engineer' },
+    { img:'assets/images/team/103.jpg', name:'Usman Saliu',      role:'Senior Solution Architect' },
+    { img:'assets/images/team/104.jpg', name:'Woko David', role:'Senior Software Engineer' },
   ];
 
   const milestones = [
@@ -136,7 +136,7 @@ function aboutPage() {
       <div class="grid-4">
         ${team.map(m => `
         <div class="team-card">
-          <div class="team-avatar">${m.e}</div>
+          <div class="team-avatar"><img src="${m.img}" alt="${m.name}" style="width:100%; height:100%; object-fit:cover; object-position:top center; border-radius:12px;" /></div>
           <div class="team-info">
             <div class="team-name">${m.name}</div>
             <div class="team-role">${m.role}</div>
