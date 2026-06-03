@@ -165,7 +165,7 @@ function homePage() {
   <!-- ── OUR EDGE ── -->
   <section class="section bg-alt">
     <div class="section-inner">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
+      <div class="edge-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
 
         <div>
           <span class="section-label">Our Edge</span>
@@ -186,7 +186,7 @@ function homePage() {
           </div>
         </div>
 
-        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);padding:2.5rem;box-shadow:var(--shadow)">
+        <div class="tech-stack-section" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);padding:2.5rem;box-shadow:var(--shadow)">
           <div style="font-family:var(--font-display);font-weight:800;font-size:1.2rem;margin-bottom:2rem;letter-spacing:-.02em">Technology Stack</div>
           <div class="tech-wrap">${stack.map(t => `<span class="tech-badge">${t}</span>`).join('')}</div>
           <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)">
