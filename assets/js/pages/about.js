@@ -54,7 +54,7 @@ function aboutPage() {
         <span class="section-label" style="display:flex;justify-content:center">Who We Are</span>
         <h1 class="section-title">
           Built at the Intersection of<br>
-          <span class="text-coral">Innovation</span> &amp; Execution
+          Innovation &amp; Execution
         </h1>
         <p style="font-size:1.1rem;line-height:1.8;color:var(--text-2);margin-top:1.25rem;max-width:680px;margin-left:auto;margin-right:auto">
           Zapatch Technologies is a next-generation, full-service technology company operating as a

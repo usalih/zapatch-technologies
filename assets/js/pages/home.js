@@ -49,8 +49,8 @@ function homePage() {
       <!-- Left content -->
       <div class="hero-content">
         <h1 class="hero-title">
-          We <span class="accent">Connect</span><br>
-          Systems &amp; <span class="accent2">Power</span><br>
+          We <span class="accent">Patch</span><br>
+          Systems &amp; Power <br>
           the Future
         </h1>
         <p class="hero-sub">

@@ -31,7 +31,7 @@ function contactPage() {
     <div class="section-inner" style="position:relative;z-index:1;text-align:center">
       <span class="section-label" style="display:flex;justify-content:center">Get in Touch</span>
       <h1 class="section-title" style="max-width:600px;margin:0 auto 1.25rem">
-        Let's Build Something<br><span class="text-coral">Remarkable</span> Together
+        Let's Build Something<br>Remarkable Together
       </h1>
       <p class="section-desc" style="margin:0 auto;max-width:520px">
         Whether you're modernizing infrastructure, launching a new product,
