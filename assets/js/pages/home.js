@@ -41,6 +41,9 @@ function homePage() {
 
   return /* html */`
 
+  <!-- ── HERO BAND (hero + ticker share this background) ── -->
+  <div class="hero-band">
+
   <!-- ── HERO ── -->
   <section class="hero">
     <div class="hero-grid"></div>
@@ -111,6 +114,8 @@ function homePage() {
       ${ticks.map(t => `<span class="ticker-item"><span class="ticker-dot">◆</span>${t}</span>`).join('')}
     </div>
   </div>
+
+  </div><!-- /.hero-band -->
 
   <!-- ── WHAT WE DO ── -->
   <section class="section bg-alt">
