@@ -11,6 +11,23 @@ const navbar      = document.getElementById('navbar');
 const hamburger   = document.getElementById('hamburger');
 const navLinks    = document.getElementById('navLinks');
 const cursorGlow  = document.getElementById('cursor-glow');
+const pageLoader  = document.getElementById('page-loader');
+
+/* ── Initial loading screen ── */
+const loaderStart = performance.now();
+let loaderRevealed = false;
+const revealLoader = () => {
+  if (loaderRevealed) return;
+  loaderRevealed = true;
+  document.body.classList.remove('is-loading');
+  pageLoader?.classList.add('is-hidden');
+  setTimeout(() => pageLoader?.remove(), 500);
+};
+window.addEventListener('load', () => {
+  const remaining = Math.max(0, 2000 - (performance.now() - loaderStart));
+  window.setTimeout(revealLoader, remaining);
+});
+window.setTimeout(revealLoader, 2000);
 
 /* ── Restore saved theme ── */
 const savedTheme = localStorage.getItem('zt-theme') || 'dark';

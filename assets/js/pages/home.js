@@ -46,7 +46,6 @@ function homePage() {
 
   <!-- ── HERO ── -->
   <section class="hero">
-    <div class="hero-grid"></div>
     <div class="hero-inner">
 
       <!-- Left content -->
@@ -86,8 +85,6 @@ function homePage() {
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
         <div class="orb orb-3"></div>
-        <div class="hero-line line-1"></div>
-        <div class="hero-line line-2"></div>
         <div class="float-card fc-1">
           <div class="fc-icon">🤖</div>
           <div class="fc-label">AI-Driven Core</div>
