@@ -60,17 +60,13 @@ window.addEventListener('scroll', () => {
 /* ══════════════════════════════════════════
    ROUTER
 ══════════════════════════════════════════ */
-const PAGES = {
-  home:      typeof homePage      === 'function' ? homePage      : () => '<p>Loading…</p>',
-  about:     typeof aboutPage     === 'function' ? aboutPage     : () => '<p>Loading…</p>',
-  services:  typeof servicesPage  === 'function' ? servicesPage  : () => '<p>Loading…</p>',
-  solutions: typeof solutionsPage === 'function' ? solutionsPage : () => '<p>Loading…</p>',
-  contact:   typeof contactPage   === 'function' ? contactPage   : () => '<p>Loading…</p>',
-};
+/* Page names — resolve templates lazily so page scripts can load before or after app.js */
+const PAGE_NAMES = ['home','about','services','solutions','contact','careers'];
 
-window.navigate = function (page) {
+window.navigate = function (page, pushState = true) {
   navLinks.classList.remove('open');
-  const fn = PAGES[page] || PAGES.home;
+  /* resolve page renderer function dynamically (lazy) */
+  const fn = (typeof window[`${page}Page`] === 'function') ? window[`${page}Page`] : ((typeof window['homePage'] === 'function') ? window['homePage'] : () => '<p>Loading…</p>');
   app.innerHTML = `<div class="page-enter">${fn()}</div>`;
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -79,13 +75,33 @@ window.navigate = function (page) {
     a.classList.toggle('active', a.dataset.page === page);
   });
 
+  /* update location hash for direct linking */
+  if (pushState) {
+    if (location.hash !== `#${page}`) location.hash = `#${page}`;
+  }
+
   /* run page-specific hooks */
   initScrollReveal();
   if (page === 'home')    initCounters();
   if (page === 'contact') initContactForm();
+  if (page === 'careers' && typeof initCareers === 'function') initCareers();
 
   return false; /* prevent href navigation */
 };
+
+/* Handle hashchange and direct loads */
+function routeFromHash() {
+  const h = (location.hash || '#home').replace('#', '') || 'home';
+  navigate(h, false);
+}
+
+window.addEventListener('hashchange', routeFromHash);
+
+/* On initial load, if there's a hash use it, otherwise render home */
+window.addEventListener('DOMContentLoaded', () => {
+  /* If page scripts are loaded after app.js, they will register window.<page>Page; routeFromHash resolves lazily */
+  routeFromHash();
+});
 
 /* ══════════════════════════════════════════
    SCROLL REVEAL
