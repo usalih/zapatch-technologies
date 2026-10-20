@@ -63,8 +63,39 @@ window.addEventListener('scroll', () => {
 /* Page names — resolve templates lazily so page scripts can load before or after app.js */
 const PAGE_NAMES = ['home','about','services','solutions','contact','careers'];
 
+window.notFoundPage = function () {
+  return `
+    <section class="section" style="padding-top:8rem; padding-bottom:5rem;">
+      <div class="section-inner" style="text-align:center;">
+        <div style="max-width:760px; margin:0 auto;">
+          <div style="font-family:var(--font-display); font-size:clamp(4rem, 10vw, 8rem); color:var(--coral); line-height:1; margin-bottom:1rem;">404</div>
+          <h1 class="section-title" style="margin-bottom:1rem;">This page does not exist.</h1>
+          <p class="section-desc" style="margin:0 auto 2rem; max-width:620px;">Sorry, the page you are looking for could not be found. Please choose one of the options below.</p>
+          <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+            <a href="#home" class="btn-primary" onclick="return navigate('home')">Go to Home</a>
+            <a href="#contact" class="btn-secondary" onclick="return navigate('contact')">Contact Zapatch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+};
+
 window.navigate = function (page, pushState = true) {
   navLinks.classList.remove('open');
+
+  if (!PAGE_NAMES.includes(page)) {
+    app.innerHTML = `<div class="page-enter">${window.notFoundPage()}</div>`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.classList.toggle('active', false);
+    });
+
+    if (pushState && location.hash !== '#404') location.hash = '#404';
+    return false;
+  }
+
   /* resolve page renderer function dynamically (lazy) */
   const fn = (typeof window[`${page}Page`] === 'function') ? window[`${page}Page`] : ((typeof window['homePage'] === 'function') ? window['homePage'] : () => '<p>Loading…</p>');
   app.innerHTML = `<div class="page-enter">${fn()}</div>`;
@@ -91,7 +122,14 @@ window.navigate = function (page, pushState = true) {
 
 /* Handle hashchange and direct loads */
 function routeFromHash() {
-  const h = (location.hash || '#home').replace('#', '') || 'home';
+  const raw = (location.hash || '#home').replace('#', '') || 'home';
+  const h = raw.toLowerCase();
+
+  if (!PAGE_NAMES.includes(h)) {
+    window.navigate('404', false);
+    return;
+  }
+
   navigate(h, false);
 }
 
@@ -183,6 +221,10 @@ window.showToast = function (msg) {
 };
 
 /* ══════════════════════════════════════════
-   BOOT — render Home on load
+  BOOT — render Home on load
+  Only navigate to home when there is no location hash so direct
+  hash links (e.g. #contact) are preserved and not overridden.
 ══════════════════════════════════════════ */
-window.navigate('home');
+if (!location.hash || location.hash === '#') {
+  window.navigate('home');
+}
